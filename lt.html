@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Botui 内嵌专用页面</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Botui 内嵌专用页面">
+  <meta name="keywords" content="Botui 内嵌专用页面">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://upyun.dogcraft.top/js/botui/botui.min.css" rel="stylesheet">
+  <link href="https://upyun.dogcraft.top/js/botui/botui-theme-default.css" rel="stylesheet">
+  <script src="https://fastly.jsdelivr.net/vue/latest/vue.min.js"></script>
+  <script src="https://www.dogcraft.top/js/botui.js"></script>
+</head>
+
+<body>
+    <div id="my-botui-app">
+        <bot-ui>该内容未能正确显示，请刷新页面、更换浏览器或网络环境。</botui>
+      </div>
+<script type="text/javascript">
+
+// var botui;
+
+function botuiinit() {
+    var botui = new BotUI("my-botui-app");
+botui.message.add({
+  delay: 800,
+  content: "你好啊👋"
+}).then(function () {
+  botui.message.add({
+    delay: 1100,
+    content: "这里是 新奥尔良姬翅"
+  }).then(function () {
+    botui.message.add({
+      delay: 1100,
+      content: "你想要了解更多吗"
+    }).then(function () {
+      botui.action.button({
+        delay: 1600,
+        action: [{
+          text: "然后呢？ 😃",
+          value: "sure"
+        }, {
+          text: "少废话！ 🙄",
+          value: "skip"
+        }]
+      }).then(function (a) {
+        "sure" == a.value && sure();
+        "skip" == a.value && end()
+      })
+    })
+  })
+});
+
+var end = function () {
+    botui.message.add({
+      delay: 600,
+      content: "![...](https://upyun.dogcraft.top/img/20200531211632.jpg)"
+    })
+  };
+  var sure = function () {
+    botui.message.add({
+      delay: 600,
+      content: " ヾ(≧∇≦*)ゝ "
+    }).then(function () {
+      secondpart();
+    })
+  };
+  
+  var secondpart = function () {
+    botui.message.add({
+      delay: 1200,
+      content: "现在是一名大三学生，考研鼠鼠，专业是计科和软工"
+    }).then(function () {
+      botui.message.add(
+        {
+          delay: 1400,
+          content: "无法拒绝可爱的东西，是一名二次元宅，Lolicon"
+        }
+      ).then(function () {
+        botui.message.add(
+          {
+            delay: 2400,
+            type : "html",
+            content: "口头禅是 无论什么时候，都不要后悔 <br>"
+          }).then(function () {
+            botui.message.add(
+              {
+                delay: 1400,
+                content: "兴趣爱好广泛，比较喜欢玩游戏，比如碧蓝航线"
+              }
+            ).then(function () {
+              botui.message.add(
+                {
+                  type: 'html',
+                  loading: true,
+                  delay: 1400,
+                  content: '你也是指挥官吗'
+                }
+              ).then(
+                function () {
+                  botui.message.add(
+                    {
+                      delay: 1000,
+  
+                      content: '……'
+                    }
+                  ).then(function () {
+                    botui.action.button(
+                      {
+                        delay: 2000,
+                        action: [
+                          {
+                            text: "为什么叫 吮指原味姬 ？",
+                            value: "dog?"
+                          }
+                        ]
+                      }
+                    ).then(function (a) {
+                      nextdog();
+                    })
+  
+                  })
+                }
+  
+              )
+            })
+          })
+      })
+    })
+  
+  };
+  var nextdog = function () {
+  
+    botui.message.add(
+      {
+        delay: 800,
+        content: '我非常喜欢吮指原味鸡，可能仅此而已🥠'
+      }
+    ).then(function () {
+      botui.action.button({
+        delay: 2000,
+        action: [{
+          text: "任何萝莉控，都将绳之以法",
+          value: "sure2"
+        }, {
+          text: "可爱即是正义",
+          value: "skip2"
+        }]
+      }).then(function (a) {
+        "sure2" == a.value && sure2();
+        "skip2" == a.value && end2()
+      })
+      var end2 = function () {
+        botui.message.add({
+          delay: 600,
+          content: "好好好，你也是道友！"
+        })
+      };
+      var sure2 = function () {
+        botui.message.add({
+          delay: 600,
+          content: " 我的xp我说了算，二次元的事你少管🤫 "
+        }).then(function () {
+          thirdpart();
+        })
+      };
+
+      var thirdpart = function () {
+        botui.action.button(
+          {
+            delay: 2000,
+            action: [
+              {
+                text: "还有呢？",
+                value: "dog"
+              }
+            ]
+          }
+        ).then(
+          function () {
+            botui.message.add(
+              {
+                delay: 900,
+                type: "html",
+                content: "没有了……<br>想知道更多就自己去找吧  ╮(╯▽╰)╭  "
+              }
+            )
+          }
+        )
+      };
+    })
+  };
+}
+
+botuiinit();
+
+
+
+
+</script>
+</body>
+</html>
