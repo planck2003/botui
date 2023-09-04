@@ -103,7 +103,6 @@ var end = function () {
                   botui.message.add(
                     {
                       delay: 1000,
-  
                       content: '……'
                     }
                   ).then(function () {
@@ -112,7 +111,7 @@ var end = function () {
                         delay: 2000,
                         action: [
                           {
-                            text: "为什么叫 吮指原味姬 ？",
+                            text: "为什么叫 吮指原味只因 ？",
                             value: "dog?"
                           }
                         ]
@@ -131,14 +130,18 @@ var end = function () {
     })
   
   };
-  var nextdog = function () {
-  
+  var nextdog = function () { 
     botui.message.add(
       {
         delay: 800,
-        content: '我非常喜欢吮指原味鸡，可能仅此而已🥠'
-      }
-    ).then(function () {
+        content: '小黑子荔枝一点'
+      }).then(function () {
+      botui.message.add({
+        delay: 1100,
+        content: "我非常喜欢吮指原味鸡，可能仅此而已🥠"
+      })
+    })
+    .then(function () {
       botui.action.button({
         delay: 2000,
         action: [{
@@ -195,9 +198,6 @@ var end = function () {
 }
 
 botuiinit();
-
-
-
 
 </script>
 </body>
